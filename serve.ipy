@@ -1,19 +1,26 @@
 #!/usr/bin/env ipython
 
-'''
-!echo serving $PWD
-if php5 exists:
-    !echo running web server with php5
-    !php5 -?
+def php_exists():
+    res = !php --version
+    if res.s.startswith('PHP ') and 'Zend Engine' in res.s:
+        return True
+
+
+!echo "[x] Serving $PWD"
+
+if php_exists():
+    tool = 'PHP'
+    command = 'php -S 0.0.0.0:8000'
+    '''
 # elif python2 exists:
     tool = 'python2'
     command = 'python2 -m SimpleHTTPServer'
 # elif python3 exists:
 '''
-if 1:
+else:
     tool = 'python3'
     command = 'python3 -m http.server'
 
-!echo *serve*  running web server with $tool
+!echo "[x] Running web server with $tool"
 !$command
 
