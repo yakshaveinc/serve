@@ -1,3 +1,7 @@
+This repository is mostly an example of using IPython as a Bash replacement. To solve the problem of quickly serving current directory over HTTP, it is better to use https://github.com/philippgille/serve which provides `snap` packages and many convenient features.
+
+---
+
 Precedence (TBD):
 
 - PHP5+
